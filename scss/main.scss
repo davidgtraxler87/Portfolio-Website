@@ -1,0 +1,243 @@
+//variables
+$website-width: 1280px;
+$main-color: #ffbc00;
+$light-color: #f4f4f4;
+$medium-color: #cccccc;
+$dark-color: #333333;
+$bg-image: url("../img/showcase-1.jpg");
+
+//General Styles
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Dosis", sans-serif;
+  line-height: 1.6;
+  background: #ffffff;
+}
+
+a {
+  text-decoration: none;
+  color: $dark-color;
+}
+
+ul {
+  list-style: none;
+}
+
+h2,
+h3,
+h4 {
+  text-transform: uppercase;
+}
+
+img {
+  width: 100%; //keep images inside their containers
+}
+
+//Utilities Classes
+.container {
+  max-width: $website-width;
+  padding: 0 1.5rem;
+  margin: auto;
+  overflow: hidden;
+}
+
+//Padding
+.py {
+  &-1 {
+    padding: 1rem 0;
+  }
+  &-2 {
+    padding: 2rem 0;
+  }
+  &-3 {
+    padding: 3rem 0;
+  }
+  &-4 {
+    padding: 4rem 0;
+  }
+}
+
+//Margin
+.my {
+  &-1 {
+    margin: 1rem 0;
+  }
+  &-2 {
+    margin: 2rem 0;
+  }
+  &-3 {
+    margin: 3rem 0;
+  }
+  &-4 {
+    margin: 4rem 0;
+  }
+}
+
+//Buttons
+%btn-shared {
+  display: inline-block;
+  margin: 1rem;
+  padding: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 1.25px;
+  transition: all 0.5s;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn {
+  &-main {
+    @extend %btn-shared;
+    color: #333333;
+    background-color: $main-color;
+  }
+
+  &-light {
+    @extend %btn-shared;
+    color: #333333;
+    background-color: $light-color;
+  }
+
+  &-dark {
+    @extend %btn-shared;
+    color: $light-color;
+    background-color: $dark-color;
+  }
+}
+
+button[class^="btn-"]:hover,
+a[class^="btn-"]:hover,
+input[class^="btn-"]:hover {
+  background: $main-color;
+}
+
+.lead {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+//Logo
+#logo {
+  width: 70px;
+  height: 70px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+//Main Nav
+#main-nav {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+
+  ul {
+    display: flex;
+  }
+
+  li {
+    padding: 1rem 1.5rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: $light-color;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 3px transparent solid;
+    padding-bottom: 0.5rem;
+    transition: border-color 0.5s;
+
+    &:hover {
+      border-color: $medium-color;
+    }
+
+    &.current {
+      border-color: $main-color;
+    }
+  }
+}
+
+//Header
+#header {
+  //Header Home
+  &-home {
+    background: $bg-image no-repeat center right / cover;
+    height: 100vh;
+    color: #ffffff;
+
+    //Header Content
+    .header-content {
+      text-align: center;
+      padding-top: 25%;
+
+      h1 {
+        font-size: 4rem;
+        line-height: 1.2;
+      }
+    }
+  }
+
+  &-inner {
+  }
+}
+
+//Home Sections
+#home {
+  // Home Section A
+  &-a {
+    .specials {
+      margin-top: 3rem;
+      display: grid;
+      grid-gap: 2rem;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .fas {
+      color: $main-color;
+      padding-bottom: 0.4rem;
+    }
+  }
+  // Home Section B
+  &-b {
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      li {
+        line-height: 2;
+
+        &.stats-title {
+          //grab list item
+          font-size: 1.5rem;
+        }
+        &.stats-number {
+          //grab list item
+          font-size: 2rem;
+          font-weight: bold;
+        }
+      }
+
+      div {
+        padding: 3rem 0;
+
+        &:nth-child(odd) {
+          background: $light-color;
+        }
+        &:nth-child(even) {
+          background: $medium-color;
+        }
+      }
+    }
+  }
+}
